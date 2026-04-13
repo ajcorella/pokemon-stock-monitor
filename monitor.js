@@ -167,13 +167,10 @@ async function main() {
     console.log("\n--- BEST BUY --- (skipped — no API key)");
   }
 
-  // --- Send alerts (one SMS per product to stay under character limits) ---
+  // --- Send alert ---
   if (alerts.length > 0) {
     console.log(`\n${alerts.length} ALERT(S) FOUND!`);
-    for (const alert of alerts) {
-      const smsBody = alert.substring(0, 140);
-      try { await sendSMS(smsBody); await sleep(1000); } catch (e) { console.error(`SMS failed: ${e.message}`); }
-    }
+    try { await sendSMS(`POKEMON IN STOCK! ${alerts.length} item(s). Check Kai.`); } catch (e) { console.error(`SMS failed: ${e.message}`); }
   } else {
     console.log("\nNo stock found. Will check again next run.");
   }
