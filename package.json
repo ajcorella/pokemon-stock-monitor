@@ -1,0 +1,13 @@
+{
+  "name": "bestbuy-pokemon-monitor",
+  "version": "1.0.0",
+  "description": "Monitors Best Buy for in-stock Pokémon TCG products at MSRP and sends SMS alerts",
+  "main": "monitor.js",
+  "scripts": {
+    "start": "node monitor.js",
+    "test": "node monitor.js --dry-run"
+  },
+  "dependencies": {
+    "twilio": "^5.13.1"
+  }
+}

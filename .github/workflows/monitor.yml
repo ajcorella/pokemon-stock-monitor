@@ -1,0 +1,29 @@
+name: Pokémon Stock Monitor
+
+on:
+  schedule:
+    # Runs every 5 minutes, 24/7
+    - cron: "*/5 * * * *"
+  workflow_dispatch: # Manual trigger button in GitHub
+
+jobs:
+  check-stock:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - run: npm install
+
+      - run: node monitor.js
+        env:
+          BESTBUY_API_KEY: ${{ secrets.BESTBUY_API_KEY }}
+          TWILIO_ACCOUNT_SID: ${{ secrets.TWILIO_ACCOUNT_SID }}
+          TWILIO_AUTH_TOKEN: ${{ secrets.TWILIO_AUTH_TOKEN }}
+          TWILIO_FROM_NUMBER: ${{ secrets.TWILIO_FROM_NUMBER }}
+          NOTIFY_PHONE_NUMBER: ${{ secrets.NOTIFY_PHONE_NUMBER }}
+          ZIP_CODE: "85383"
+          SEARCH_RADIUS_MILES: "25"

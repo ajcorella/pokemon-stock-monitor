@@ -1,0 +1,22 @@
+{
+  "target": [
+    { "tcin": "95082118", "name": "Ascended Heroes Elite Trainer Box" },
+    { "tcin": "1010148053", "name": "Ascended Heroes Elite Trainer Box (v2)" },
+    { "tcin": "94300072", "name": "Prismatic Evolutions Super Premium Collection" },
+    { "tcin": "94300067", "name": "Destined Rivals Booster Bundle" },
+    { "tcin": "94300069", "name": "Destined Rivals Elite Trainer Box" },
+    { "tcin": "94300074", "name": "Journey Together Booster Bundle" },
+    { "tcin": "93927375", "name": "Mega Charizard X ex Ultra Premium Collection" },
+    { "tcin": "93927376", "name": "Mega Venusaur ex Premium Collection" },
+    { "tcin": "93927377", "name": "Blooming Waters Premium Collection" }
+  ],
+  "bestbuy": [
+    { "sku": "6665449", "name": "Ascended Heroes Elite Trainer Box" },
+    { "sku": "6665401", "name": "Ascended Heroes Booster Bundle" },
+    { "sku": "6621081", "name": "Prismatic Evolutions Super Premium Collection" },
+    { "sku": "6608206", "name": "Prismatic Evolutions Booster Bundle" },
+    { "sku": "6624828", "name": "Destined Rivals Booster Bundle" },
+    { "sku": "6644581", "name": "Mega Charizard X ex Ultra Premium Collection" },
+    { "sku": "6644577", "name": "Mega Venusaur ex Premium Collection" }
+  ]
+}
