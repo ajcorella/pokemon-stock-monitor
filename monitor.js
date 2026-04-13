@@ -131,8 +131,8 @@ async function main() {
     try {
       const result = await checkTarget(product);
       if (result.inStock.length > 0) {
-        const storeList = result.inStock.map((s) => `${s.store} (${s.city}, ${s.distance}mi) — qty: ${s.qty}`).join(", ");
-        const msg = `TARGET: ${result.name} IN STOCK at ${storeList}`;
+        const nearest = result.inStock[0];
+        const msg = `TARGET: ${result.name} @ ${nearest.store} qty:${nearest.qty}`;
         console.log(`  ${msg}`);
         alerts.push(msg);
       } else {
@@ -167,10 +167,12 @@ async function main() {
     console.log("\n--- BEST BUY --- (skipped — no API key)");
   }
 
-  // --- Send alert ---
+  // --- Send alert (one per product, short enough for trial) ---
   if (alerts.length > 0) {
     console.log(`\n${alerts.length} ALERT(S) FOUND!`);
-    try { await sendSMS(`POKEMON IN STOCK! ${alerts.length} item(s). Check Kai.`); } catch (e) { console.error(`SMS failed: ${e.message}`); }
+    for (const alert of alerts) {
+      try { await sendSMS(alert.substring(0, 130)); await sleep(1000); } catch (e) { console.error(`SMS failed: ${e.message}`); }
+    }
   } else {
     console.log("\nNo stock found. Will check again next run.");
   }
